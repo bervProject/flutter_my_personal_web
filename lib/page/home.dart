@@ -1,4 +1,10 @@
+import 'dart:convert';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'dart:developer' as developer;
+import 'package:http/http.dart' as http;
+import '../model/post.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -20,6 +26,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  Post postData;  
+  Random rng = Random.secure();
 
   void _incrementCounter() {
     setState(() {
@@ -73,6 +81,28 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            RaisedButton(
+              onPressed: () async {
+                int randomNumber = rng.nextInt(100) + 1;
+                print(randomNumber);
+                final response = await http
+                    .get('https://jsonplaceholder.typicode.com/posts/$randomNumber');
+                if (response.statusCode == 200) {
+                  // If server returns an OK response, parse the JSON.
+                  setState(() {
+                    postData = Post.fromJson(json.decode(response.body));                  
+                  });
+                } else {
+                  // If that response was not OK, throw an error.
+                  throw Exception('Failed to load post');
+                }
+              },
+              child: Text(
+                'Download Data',
+              ),
+            ),
+            Text('${postData.title}'),
+            Text('${postData.body}'),
           ],
         ),
       ),
