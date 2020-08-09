@@ -2,6 +2,12 @@
 
 My Personal Web Access
 
+## Build Status
+
+| CircleCI | Github Action |
+|:--------:|:-------------:|
+| [![bervProject](https://circleci.com/gh/bervProject/flutter_my_personal_web.svg?style=svg)](https://circleci.com/gh/bervProject/flutter_my_personal_web) | ![Flutter CI](https://github.com/bervProject/flutter_my_personal_web/workflows/Flutter%20CI/badge.svg) |
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
