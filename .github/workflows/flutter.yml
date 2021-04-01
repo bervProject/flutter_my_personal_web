@@ -18,3 +18,13 @@ jobs:
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk
+      - name: Build Web
+        run: flutter build web
+      - name: GitHub Pages action
+        if: ${{ github.event_name == 'push' }}
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: 'build/web'
+          user_name: 'Bervianto Leo Pratama'
+          user_email: 'bervianto.leo@gmail.com'
