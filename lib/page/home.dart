@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer' as developer;
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import '../model/post.dart';
 class MyHomePage extends StatefulWidget {
   MyHomePage({
     Key? key,
+    this.buttonKey,
     required this.title,
   }) : super(key: key);
 
@@ -22,6 +24,7 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
+  final Key? buttonKey;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -60,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
+              key: widget.buttonKey,
               onPressed: () async {
                 int randomNumber = rng.nextInt(100) + 1;
                 print(randomNumber);
@@ -72,7 +76,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 } else {
                   // If that response was not OK, throw an error.
-                  throw Exception('Failed to load post');
+                  setState(() {
+                    postData = Post(
+                      userId: 1,
+                      id: 1,
+                      title: "Failed Download Data",
+                      body: "",
+                    );
+                  });
+                  developer.log('Failed to load post');
                 }
               },
               child: Text(
