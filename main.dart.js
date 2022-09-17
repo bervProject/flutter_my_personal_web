@@ -40705,7 +40705,7 @@ this.b2()},
 r6(){var s,r=this,q=r.h3$,p=r.j8$
 p=r.h3$=B.d.bH(B.d.iR(p.gt(p),0,1)*255)
 if(q!==p){s=r.t9$
-p=p>0&&p<255
+p=p>0
 r.t9$=p
 if(r.C$!=null&&s!==p)r.lq()
 r.Rm()
