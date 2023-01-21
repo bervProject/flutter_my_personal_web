@@ -23,7 +23,7 @@ jobs:
         run: flutter build web
       - name: GitHub Pages action
         if: ${{ github.event_name == 'push' }}
-        uses: peaceiris/actions-gh-pages@v3.9.1
+        uses: peaceiris/actions-gh-pages@v3.9.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: 'build/web'
