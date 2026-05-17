@@ -20095,7 +20095,7 @@ $iAh:1}
 A.a4A.prototype={
 $1(a){var s=A.cd().b
 s=s==null?null:s.canvasKitBaseUrl
-return(s==null?"https://www.gstatic.com/flutter-canvaskit/425cfb54d01a9472b3e81d9e76fd63a4a44cfbcb/":s)+a},
+return(s==null?"https://www.gstatic.com/flutter-canvaskit/42d3d75a56efe1a2e9902f52dc8006099c45d937/":s)+a},
 $S:72}
 A.CL.prototype={
 gxj(){var s=this.b
